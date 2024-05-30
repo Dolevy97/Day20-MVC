@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color:azure;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #D0D0D0;
+}
+
+th,
+td {
+    border: 1px solid;
+    padding: 3px 10px;
+}
+
+tr:nth-of-type(even) {
+    background-color: #E8E8E8;
+}
+
+.btn {
+    border-radius: 5px;
+    border: .2px solid rgba(0, 0, 0, 0.2);
+}
+
+.btn-read {
+    background-color: #51BCF1;
+}
+
+.btn-update {
+    background-color: #F4C74D;
+}
+
+.btn-delete {
+    background-color: #FF5622;
+}
