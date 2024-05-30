@@ -5,7 +5,7 @@ function onInit() {
 }
 
 function renderBooks() {
-    var className = gCardViewMode? '' : 'center' ;
+    var className = gCardViewMode ? '' : 'center';
     if (gBooks.length === 0) var strHTML = [`<h2 class='${className}'>No available books with this filler :(</h2>`]
     else if (gCardViewMode) {
         var strHTML = gBooks.map(book => `<div class="card">
@@ -65,8 +65,8 @@ function onAddBook() {
 
     var price = +prompt(`Great! And its price?`)
     while (price === NaN || !price) price = +prompt(`Please enter a number for the price`)
-
-    addBook(title, price)
+    var imgUrl = prompt('If you have an image, please link it here')
+    addBook(title, price, imgUrl)
     renderBooks()
     successMsg()
 }
@@ -80,7 +80,7 @@ function onReadBook(id) {
     <img src="${book.imgUrl}">
     ID: ${book.id}
     Title: ${book.title}
-    Price: ${book.price}
+    Price: $${book.price}
     `
     elPre.innerHTML = str
     elDialog.showModal()
