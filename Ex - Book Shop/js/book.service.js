@@ -30,3 +30,7 @@ function getBooks() {
 function removeBook(idx) {
     gBooks.splice(idx,1)
 }
+
+function updateBook(idx, price) {
+    gBooks[idx].price = price
+}
