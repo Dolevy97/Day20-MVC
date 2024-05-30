@@ -1,32 +1,25 @@
 'use strict'
 
 function onInit() {
-    render()
+    renderBooks()
 }
 
-function render() {
+function renderBooks() {
     var strHTML = gBooks.map(book => `<tr>
     <td>${book.title}</td>
     <td>$${book.price}</td>
-    <td class="btn-td"><button class="btn btn-read">Read</button>
+    <td class="btn-td">
+        <button class="btn btn-read">Read</button>
         <button class="btn btn-update">Update</button>
-        <button class="btn btn-delete">Delete</button>
+        <button class="btn btn-delete" onclick="onRemoveBook('${book.id}')" >Delete</button>
     </td>
     </tr>`)
     const elTBody = document.querySelector('tbody')
     elTBody.innerHTML = strHTML.join('')
 }
 
-
-{/*
-
-<tr>
-<td>Harry Potter and the Deathly Hallows</td>
-<td>$60</td>
-<td class="btn-td"><button class="btn btn-read">Read</button>
-    <button class="btn btn-update">Update</button>
-    <button class="btn btn-delete">Delete</button>
-</td>
-</tr>
-
-*/}
+function onRemoveBook(id) {
+    var bookIdx = gBooks.findIndex((book) => book.id === id)
+    removeBook(bookIdx)
+    renderBooks()
+}

@@ -26,3 +26,7 @@ getBooks()
 function getBooks() {
     return gBooks
 }
+
+function removeBook(idx) {
+    gBooks.splice(idx,1)
+}
