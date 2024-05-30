@@ -26,7 +26,7 @@ function onRemoveBook(id) {
 function onUpdateBook(id) {
     var newPrice = +prompt(`Please enter the new price for the book.`)
     while (newPrice === NaN || !newPrice) newPrice = +prompt(`Please enter a number for the price that is higher than 0`)
-        
+
     updateBook(id, newPrice)
     renderBooks()
 }
@@ -46,9 +46,14 @@ function onReadBook(id) {
     const elDialog = document.querySelector('dialog')
     const elPre = elDialog.querySelector('.pre')
     var book = getBookById(id)
-    var strBook = JSON.stringify(book,null,2)
-    console.log('book: ', book)
-    elPre.innerHTML = strBook
+    // var strBook = JSON.stringify(book, null, 2)
+    var str = `
+    <img src="${book.imgUrl}">
+    ID: ${book.id}
+    Title: ${book.title}
+    Price: ${book.price}
+    `
+    elPre.innerHTML = str
     elDialog.showModal()
 }
 

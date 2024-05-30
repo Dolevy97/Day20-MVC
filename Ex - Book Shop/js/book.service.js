@@ -49,19 +49,19 @@ function _createBooks() {
     gBooks = loadFromStorage('books')
     if (gBooks && gBooks.length !== 0) return
     gBooks = [
-        _createBook('Harry Potter and the Deathly Hallows', 60),
-        _createBook('A Tale of Two Cities', 80),
-        _createBook('The Little Prince', 60)
+        _createBook('Harry Potter and the Deathly Hallows', 60, 'img/book1.jpg'),
+        _createBook('A Tale of Two Cities', 80, 'img/book2.jpg'),
+        _createBook('The Little Prince', 60, 'img/book3.jpg')
     ]
     _saveBooks()
 }
 
-function _createBook(title, price) {
+function _createBook(title, price, imgUrl = 'img/book.jpg') {
     return {
         id: makeId(),
         title,
         price,
-        imgUrl: 'book.jpg'
+        imgUrl
     }
 }
 

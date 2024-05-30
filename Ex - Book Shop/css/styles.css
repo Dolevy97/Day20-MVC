@@ -12,6 +12,12 @@ h1 {
     margin-block:10px;
 }
 
+img {
+    display:inline;
+    margin-inline-start: calc(50% - 75px);
+    height:150px;
+}
+
 .btn-new {
     margin-block:10px;
     background-color:#66FF99;
