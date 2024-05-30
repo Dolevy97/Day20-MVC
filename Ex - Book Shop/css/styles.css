@@ -103,7 +103,7 @@ tr:nth-of-type(even) {
 
 .success {
     position: absolute;
-    top: 40%;
+    top: 42.5%;
     left: 50%;
     translate: -50% -50%;
 

@@ -19,6 +19,7 @@ function renderBooks() {
     }
     const elTBody = document.querySelector('tbody')
     elTBody.innerHTML = strHTML.join('')
+    updateStats()
 }
 
 function onRemoveBook(id) {
@@ -87,6 +88,12 @@ function onToggleView() {
     gCardViewMode = !gCardViewMode
 }
 
-function onShowDescription(elImg) {
-    
+
+function updateStats() {
+    const elExpensive = document.querySelector('.expensive')
+    const elAverage = document.querySelector('.average')
+    const elCheap = document.querySelector('.cheap')
+    elExpensive.innerText = getExpensiveBooks()
+    elAverage.innerText = getAverageBooks()
+    elCheap.innerText = getCheapBooks()
 }

@@ -61,3 +61,18 @@ function _createBook(title, price, imgUrl = 'img/book.jpg') {
 function _saveBooks() {
     saveToStorage('books', gBooks)
 }
+
+function getExpensiveBooks() {
+    var expensive = gBooks.filter(book => book.price > 200)
+    return expensive.length
+}
+
+function getAverageBooks() {
+    var average = gBooks.filter(book => book.price >= 80 && book.price <= 200)
+    return average.length
+}
+
+function getCheapBooks() {
+    var cheap = gBooks.filter(book => book.price < 80)
+    return cheap.length
+}
