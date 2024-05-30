@@ -21,8 +21,6 @@ var gBooks = [
     }
 ]
 
-getBooks()
-
 function getBooks() {
     return gBooks
 }
@@ -33,4 +31,14 @@ function removeBook(idx) {
 
 function updateBook(idx, price) {
     gBooks[idx].price = price
+}
+
+function addBook(title, price) {
+    var newBook = {
+        id:makeId(),
+        title,
+        price,
+        imgUrl: 'book.jpg'
+    }
+    gBooks.unshift(newBook)
 }

@@ -31,3 +31,11 @@ function onUpdateBook(id) {
     updateBook(bookIdx, newPrice)
     renderBooks()
 }
+
+function onAddBook() {
+    var title = prompt(`I'm glad you want to add a new book! What will be its title?`)
+    while (!title) title = prompt(`Please enter a non-empty title for the book`)
+    var price = +prompt(`Great! And its price?`)
+    addBook(title, price)
+    renderBooks()
+}
