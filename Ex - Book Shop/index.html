@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
+<body onload="onInit()">
     <h1>Dolev's Bookshop</h1>
     <table>
         <thead>
@@ -20,7 +20,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>Harry Potter</td>
+                <td>Harry Potter and the Deathly Hallows</td>
                 <td>$60</td>
                 <td class="btn-td"><button class="btn btn-read">Read</button>
                     <button class="btn btn-update">Update</button>
@@ -48,5 +48,7 @@
 
 
 </body>
+<script src="js/book.controller.js"></script>
+<script src="js/book.service.js"></script>
 
 </html>
