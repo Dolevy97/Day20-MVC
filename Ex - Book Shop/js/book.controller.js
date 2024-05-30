@@ -19,14 +19,13 @@ function renderBooks() {
 }
 
 function onRemoveBook(id) {
-    var bookIdx = gBooks.findIndex((book) => book.id === id)
-    removeBook(bookIdx)
+    removeBook(id)
     renderBooks()
 }
 
 function onUpdateBook(id) {
-    var book = gBooks.find((book) => book.id === id)
-    var bookIdx = gBooks.findIndex((book) => book.id === id)
+    var book = gBooks.find(book => book.id === id)
+    var bookIdx = gBooks.findIndex(book => book.id === id)
     var newPrice = +prompt(`Please enter the new price for the book ${book.title}`)
     while (newPrice === NaN || !newPrice) newPrice = +prompt(`Please enter a number for the price that is higher than 0`)
     updateBook(bookIdx, newPrice)
@@ -45,9 +44,18 @@ function onAddBook() {
 function onReadBook(id) {
     const elDialog = document.querySelector('dialog')
     const elPre = elDialog.querySelector('pre')
-
     var book = gBooks.find((book) => book.id === id)
-
     elPre.innerHTML = JSON.stringify(book)
     elDialog.showModal()
+}
+
+function onFilterByName(value) {
+    getBooks(value)
+
+    renderBooks()
+}
+
+function onClearFilter() {
+    const elInput = document.querySelector('.filter-input')
+    elInput.value = ''
 }

@@ -1,14 +1,26 @@
 'use strict'
 
+var gFilterBy
 var gBooks
 _createBooks()
 
-function getBooks() {
-    return gBooks
+function getBooks(value) {
+    if (!value || value === undefined) {
+        _createBooks()
+    } else {
+        value = value.toLowerCase()
+        gFilterBy = value
+        var newBookDisplay = gBooks.filter(book =>
+            book.title.substring(0, gFilterBy.length).toLowerCase() === gFilterBy
+        )
+        gBooks = newBookDisplay
+        return gBooks
+    }
 }
 
 function removeBook(idx) {
-    gBooks.splice(idx, 1)
+    var index = gBooks.findIndex((book) => book.id === idx)
+    gBooks.splice(index, 1)
     _saveBooks()
 }
 
