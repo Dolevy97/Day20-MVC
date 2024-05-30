@@ -18,14 +18,19 @@ function getBooks(value) {
     }
 }
 
+function getBookById(id) {
+    return gBooks.find(book => book.id === id)
+}
+
 function removeBook(idx) {
     var index = gBooks.findIndex((book) => book.id === idx)
     gBooks.splice(index, 1)
     _saveBooks()
 }
 
-function updateBook(idx, price) {
-    gBooks[idx].price = price
+function updateBook(id, price) {
+    var book = getBookById(id)
+    book.price = price
     _saveBooks()
 }
 
