@@ -5,15 +5,18 @@ function onInit() {
 }
 
 function renderBooks() {
-    var strHTML = gBooks.map(book => `<tr>
-    <td>${book.title}</td>
-    <td>$${book.price}</td>
-    <td class="btn-td">
-        <button class="btn btn-read" onclick="onReadBook('${book.id}')">Read</button>
-        <button class="btn btn-update" onclick="onUpdateBook('${book.id}')">Update</button>
-        <button class="btn btn-delete" onclick="onRemoveBook('${book.id}')" >Delete</button>
-    </td>
-    </tr>`)
+    if (gBooks.length === 0) var strHTML = [`<h2 class='center'>No available books with this filler :(</h2>`]
+    else {
+        var strHTML = gBooks.map(book => `<tr>
+        <td>${book.title}</td>
+        <td>$${book.price}</td>
+        <td class="btn-td">
+            <button class="btn btn-read" onclick="onReadBook('${book.id}')">Read</button>
+            <button class="btn btn-update" onclick="onUpdateBook('${book.id}')">Update</button>
+            <button class="btn btn-delete" onclick="onRemoveBook('${book.id}')" >Delete</button>
+        </td>
+        </tr>`)
+    }
     const elTBody = document.querySelector('tbody')
     elTBody.innerHTML = strHTML.join('')
 }
@@ -71,9 +74,11 @@ function onClearFilter() {
 }
 
 function successMsg() {
+    var successTimeout
+    clearTimeout(successTimeout)
     var elSuccess = document.querySelector('.success')
     elSuccess.style.opacity = 1
-    setTimeout(() => {
+    successTimeout = setTimeout(() => {
         elSuccess.style.opacity = 0
-    },2000)
+    }, 2000)
 }
