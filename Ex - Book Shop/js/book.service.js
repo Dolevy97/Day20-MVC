@@ -35,12 +35,7 @@ function updateBook(id, price) {
 }
 
 function addBook(title, price) {
-    var newBook = {
-        id: makeId(),
-        title,
-        price,
-        imgUrl: 'book.jpg'
-    }
+    var newBook = _createBook(title, price)
     gBooks.unshift(newBook)
     _saveBooks()
 }
