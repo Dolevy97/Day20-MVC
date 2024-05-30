@@ -28,6 +28,7 @@ function onUpdateBook(id) {
     var book = gBooks.find((book) => book.id === id)
     var bookIdx = gBooks.findIndex((book) => book.id === id)
     var newPrice = +prompt(`Please enter the new price for the book ${book.title}`)
+    while (newPrice === NaN || !newPrice) newPrice = +prompt(`Please enter a number for the price that is higher than 0`)
     updateBook(bookIdx, newPrice)
     renderBooks()
 }
