@@ -75,7 +75,16 @@
             <pre class="pre"></pre>
         </dialog>
     </div>
-
+    <div class="backdrop" hidden>
+        <div class="add-book-modal" hidden>
+            <h3>Please enter the name and price of the book you wish to add!</h3>
+            <h3>If you have an image url of the cover, add it aswell (optional)</h3>
+            <input class='name-input' type="text" placeholder="Book name">
+            <input class='price-input' type="text" placeholder="Price">
+            <input class='image-url-input' type="text" placeholder="Image URL (optional)">
+            <button type="submit" onclick="onHideModal()">Submit</button>
+        </div>
+    </div>
     <h1 class="success">Success!</h1>
     <footer>DolevCoding 2024 - Coding Academy
         <div class="stats"><span class="expensive">5</span> Expensive Book(s),

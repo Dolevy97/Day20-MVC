@@ -60,15 +60,10 @@ function onUpdateBook(id) {
 }
 
 function onAddBook() {
-    var title = prompt(`I'm glad you want to add a new book! What will be its title?`)
-    while (!title) title = prompt(`Please enter a non-empty title for the book`)
-
-    var price = +prompt(`Great! And its price?`)
-    while (price === NaN || !price) price = +prompt(`Please enter a number for the price`)
-    var imgUrl = prompt('If you have an image, please link it here')
-    addBook(title, price, imgUrl)
-    renderBooks()
-    successMsg()
+    const elBackdrop = document.querySelector('.backdrop')
+    const elModal = document.querySelector('.add-book-modal')
+    elBackdrop.hidden = false
+    elModal.hidden = false
 }
 
 function onReadBook(id) {
@@ -121,4 +116,20 @@ function updateStats() {
     elExpensive.innerText = getExpensiveBooks()
     elAverage.innerText = getAverageBooks()
     elCheap.innerText = getCheapBooks()
+}
+
+function onHideModal() {
+    const elBackdrop = document.querySelector('.backdrop')
+    const elModal = document.querySelector('.add-book-modal')
+    var elBookNameInput = document.querySelector('.name-input')
+    var elPriceInput = document.querySelector('.price-input')
+    var elUrlInput = document.querySelector('.image-url-input')
+    elBackdrop.hidden = true
+    elModal.hidden = true
+    elUrlInput.value ? addBook(elBookNameInput.value, elPriceInput.value, elUrlInput.value) : addBook(elBookNameInput.value, elPriceInput.value);
+    elBookNameInput.value = ''
+    elPriceInput.value = ''
+    elUrlInput.value = ''
+    renderBooks()
+    successMsg()
 }
