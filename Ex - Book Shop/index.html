@@ -11,10 +11,10 @@
 <body onload="onInit()">
     <div class="view-container">
         <h4>View Mode (Table/Cards)</h4>
-        <label class="switch">
-            <input type="checkbox" onclick="onToggleView()">
-            <span class="slider round"></span>
-        </label>
+        <div>
+            <button class="btn-table" onclick="onToggleView(this)">Table</button>
+            <button class="btn-table" onclick="onToggleView(this)">Cards</button>
+        </div>
     </div>
 
     <div class="flex-container">
@@ -32,8 +32,41 @@
                     </tr>
                 </thead>
                 <tbody>
+
                 </tbody>
             </table>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <img src="img/book1.jpg" alt="">
+                <div class="description">
+                    <p>Harry Potter</p>
+                    <p>$60</p>
+                    <button class="btn btn-read">Read</button>
+                    <button class="btn btn-update">Update</button>
+                    <button class="btn btn-delete">Delete</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/book2.jpg" alt="">
+                <div class="description">
+                    <p>A Tale of Two Cities</p>
+                    <p>$80</p>
+                    <button class="btn btn-read">Read</button>
+                    <button class="btn btn-update">Update</button>
+                    <button class="btn btn-delete">Delete</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/book3.jpg" alt="">
+                <div class="description">
+                    <p>The Little Prince</p>
+                    <p>$60</p>
+                    <button class="btn btn-read">Read</button>
+                    <button class="btn btn-update">Update</button>
+                    <button class="btn btn-delete">Delete</button>
+                </div>
+            </div>
         </div>
         <dialog class="modal">
             <form method="dialog">
@@ -43,43 +76,12 @@
         </dialog>
     </div>
 
-    <div class="card-container">
-        <div class="card">
-            <img src="img/book1.jpg" alt="">
-            <div class="description">
-                <p>Harry Potter</p>
-                <p>$60</p>
-                <button class="btn btn-read">Read</button>
-                <button class="btn btn-update">Update</button>
-                <button class="btn btn-delete">Delete</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="img/book2.jpg" alt="">
-            <div class="description">
-                <p>A Tale of Two Cities</p>
-                <p>$80</p>
-                <button class="btn btn-read">Read</button>
-                <button class="btn btn-update">Update</button>
-                <button class="btn btn-delete">Delete</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="img/book3.jpg" alt="">
-            <div class="description"><p>The Little Prince</p>
-                <p>$60</p>
-                <button class="btn btn-read">Read</button>
-                <button class="btn btn-update">Update</button>
-                <button class="btn btn-delete">Delete</button>
-            </div>
-        </div>
-    </div>
-
     <h1 class="success">Success!</h1>
-    <footer>DolevCoding 2024 - Coding Academy 
+    <footer>DolevCoding 2024 - Coding Academy
         <div class="stats"><span class="expensive">5</span> Expensive Book(s),
             <span class="average">3</span> Average Book(s),
-            <span class="cheap">1</span> Cheap Book(s)</div>
+            <span class="cheap">1</span> Cheap Book(s)
+        </div>
     </footer>
 </body>
 <script src="js/utils.js"></script>

@@ -1,6 +1,6 @@
 'use strict'
 
-var gCardViewMode = false
+var gCardViewMode = loadFromStorage('viewMode')
 var gFilterBy
 var gBooks
 _createBooks()
