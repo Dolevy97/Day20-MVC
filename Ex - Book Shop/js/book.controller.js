@@ -21,6 +21,7 @@ function renderBooks() {
 function onRemoveBook(id) {
     removeBook(id)
     renderBooks()
+    successMsg()
 }
 
 function onUpdateBook(id) {
@@ -29,6 +30,7 @@ function onUpdateBook(id) {
 
     updateBook(id, newPrice)
     renderBooks()
+    successMsg()
 }
 
 function onAddBook() {
@@ -40,6 +42,7 @@ function onAddBook() {
 
     addBook(title, price)
     renderBooks()
+    successMsg()
 }
 
 function onReadBook(id) {
@@ -65,4 +68,12 @@ function onFilterByName(value) {
 function onClearFilter() {
     const elInput = document.querySelector('.filter-input')
     elInput.value = ''
+}
+
+function successMsg() {
+    var elSuccess = document.querySelector('.success')
+    elSuccess.style.opacity = 1
+    setTimeout(() => {
+        elSuccess.style.opacity = 0
+    },2000)
 }
