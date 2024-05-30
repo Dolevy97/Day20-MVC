@@ -82,3 +82,11 @@ function successMsg() {
         elSuccess.style.opacity = 0
     }, 2000)
 }
+
+function onToggleView() {
+    gCardViewMode = !gCardViewMode
+}
+
+function onShowDescription(elImg) {
+    
+}

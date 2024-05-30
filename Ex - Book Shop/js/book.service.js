@@ -1,5 +1,6 @@
 'use strict'
 
+var gCardViewMode = false
 var gFilterBy
 var gBooks
 _createBooks()
