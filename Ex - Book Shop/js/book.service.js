@@ -5,17 +5,14 @@ var gBooks
 _createBooks()
 
 function getBooks(value) {
-    if (!value || value === undefined) {
-        _createBooks()
-    } else {
-        value = value.toLowerCase()
-        gFilterBy = value
-        var newBookDisplay = gBooks.filter(book =>
-            book.title.substring(0, gFilterBy.length).toLowerCase() === gFilterBy
-        )
-        gBooks = newBookDisplay
-        return gBooks
-    }
+    if (!value || value === undefined) _createBooks()
+    value = value.toLowerCase()
+    gFilterBy = value
+    var newBookDisplay = gBooks.filter(book =>
+        book.title.substring(0, gFilterBy.length).toLowerCase() === gFilterBy
+    )
+    gBooks = newBookDisplay
+    return gBooks
 }
 
 function getBookById(id) {

@@ -6,6 +6,7 @@ body {
     background-color: azure;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: left;
+    margin-inline:0;
 }
 
 h1 {
@@ -84,5 +85,28 @@ tr:nth-of-type(even) {
     font-size: 40px;
     text-shadow: 2px 2px 3px #F4C74D, -2px -2px 3px #F4C74D;
     color: #1c1c1c;
-    transition: 1s;
+    transition: opacity 1s;
+}
+
+footer {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position:absolute;
+    left:0;
+    bottom:0;
+
+    background-color:#304146;
+    color:rgb(228, 228, 228);
+    height: 5vh;
+    width:100vw;
+    padding-inline: 10px;
+}
+
+.center {
+    position: relative;
+    top:10px;
+    left: 70%;
+    translate: -50% -50%;
 }
