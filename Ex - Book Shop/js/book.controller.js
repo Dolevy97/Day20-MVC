@@ -5,20 +5,42 @@ function onInit() {
 }
 
 function renderBooks() {
-    if (gBooks.length === 0) var strHTML = [`<h2 class='center'>No available books with this filler :(</h2>`]
-    else {
+    var className = gCardViewMode? '' : 'center' ;
+    if (gBooks.length === 0) var strHTML = [`<h2 class='${className}'>No available books with this filler :(</h2>`]
+    else if (gCardViewMode) {
+        var strHTML = gBooks.map(book => `<div class="card">
+        <img src="${book.imgUrl}">
+        <div class="description">
+            <p>${book.title}</p>
+            <p>$${book.price}</p>
+            <button class="btn btn-read" onclick="onReadBook('${book.id}')">Read</button>
+            <button class="btn btn-update" onclick="onUpdateBook('${book.id}')">Update</button>
+            <button class="btn btn-delete" onclick="onRemoveBook('${book.id}')">Delete</button>
+        </div>
+        </div>`)
+    } else {
         var strHTML = gBooks.map(book => `<tr>
         <td>${book.title}</td>
         <td>$${book.price}</td>
         <td class="btn-td">
             <button class="btn btn-read" onclick="onReadBook('${book.id}')">Read</button>
             <button class="btn btn-update" onclick="onUpdateBook('${book.id}')">Update</button>
-            <button class="btn btn-delete" onclick="onRemoveBook('${book.id}')" >Delete</button>
+            <button class="btn btn-delete" onclick="onRemoveBook('${book.id}')">Delete</button>
         </td>
         </tr>`)
     }
-    const elTBody = document.querySelector('tbody')
-    elTBody.innerHTML = strHTML.join('')
+    const elContainer = document.querySelector('tbody');
+    const elCardContainer = document.querySelector('.card-container')
+    const elHead = document.querySelector('thead')
+    if (!gCardViewMode) {
+        elContainer.innerHTML = strHTML.join('')
+        elHead.hidden = false
+        elCardContainer.innerHTML = ''
+    } else {
+        elCardContainer.innerHTML = strHTML.join('')
+        elHead.hidden = true
+        elContainer.innerHTML = ''
+    }
     updateStats()
 }
 
@@ -84,8 +106,11 @@ function successMsg() {
     }, 2000)
 }
 
-function onToggleView() {
-    gCardViewMode = !gCardViewMode
+function onToggleView(elBtn) {
+    if (elBtn.innerText === 'Table') gCardViewMode = false
+    else gCardViewMode = true
+    saveToStorage('viewMode', gCardViewMode)
+    renderBooks()
 }
 
 
