@@ -14,9 +14,11 @@ body {
     flex-direction: column;
     align-items: center;
 
-    height: 10vh;
+    margin-block-end: 3%;
+}
 
-    margin-block-end: 5%;
+h4 {
+    margin: 1%;
 }
 
 .card-container {
@@ -99,13 +101,13 @@ tr:nth-of-type(even) {
 }
 
 .flex-container {
-    width: 100vw;
-    height: 35vh;
-    /* background-color:cyan; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    width: 100vw;
+    height: 35vh;
 }
 
 .success {
@@ -116,15 +118,16 @@ tr:nth-of-type(even) {
 
     opacity: 0;
 
-    font-size: 40px;
-    text-shadow: 2px 2px 3px #F4C74D, -2px -2px 3px #F4C74D;
-    color: #1c1c1c;
     background-color: rgba(244, 199, 77, 1);
     box-shadow: 1px 1px 4px 2px black;
     padding: 8px;
     border-radius: 10px;
 
     transition: opacity 1s;
+
+    font-size: 40px;
+    color: #1c1c1c;
+    text-shadow: 2px 2px 3px #F4C74D, -2px -2px 3px #F4C74D;
 }
 
 footer {
@@ -138,7 +141,7 @@ footer {
 
     background-color: #304146;
     color: rgb(228, 228, 228);
-    height: 5vh;
+    height: 3vh;
     width: 100vw;
     padding-inline: 10px;
 }
@@ -171,4 +174,10 @@ footer {
     padding: 20px;
     border-radius: 20px;
     box-shadow: 1px 1px 2px 1px black;
+}
+
+.btn-close {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
 }

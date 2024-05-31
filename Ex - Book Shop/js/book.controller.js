@@ -59,7 +59,7 @@ function onUpdateBook(id) {
     successMsg()
 }
 
-function onAddBook() {
+function onOpenAddModal() {
     const elBackdrop = document.querySelector('.backdrop')
     const elModal = document.querySelector('.add-book-modal')
     elBackdrop.hidden = false
@@ -118,18 +118,25 @@ function updateStats() {
     elCheap.innerText = getCheapBooks()
 }
 
-function onHideModal() {
-    const elBackdrop = document.querySelector('.backdrop')
-    const elModal = document.querySelector('.add-book-modal')
+function onAddBook() {
     var elBookNameInput = document.querySelector('.name-input')
     var elPriceInput = document.querySelector('.price-input')
     var elUrlInput = document.querySelector('.image-url-input')
+    elUrlInput.value ? addBook(elBookNameInput.value, elPriceInput.value, elUrlInput.value) : addBook(elBookNameInput.value, elPriceInput.value);
+    onHideModal()
+    renderBooks()
+    successMsg()
+}
+
+function onHideModal() {
+    var elBookNameInput = document.querySelector('.name-input')
+    var elPriceInput = document.querySelector('.price-input')
+    var elUrlInput = document.querySelector('.image-url-input')
+    const elBackdrop = document.querySelector('.backdrop')
+    const elModal = document.querySelector('.add-book-modal')
     elBackdrop.hidden = true
     elModal.hidden = true
-    elUrlInput.value ? addBook(elBookNameInput.value, elPriceInput.value, elUrlInput.value) : addBook(elBookNameInput.value, elPriceInput.value);
     elBookNameInput.value = ''
     elPriceInput.value = ''
     elUrlInput.value = ''
-    renderBooks()
-    successMsg()
 }

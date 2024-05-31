@@ -54,7 +54,8 @@ function _createBook(title, price, imgUrl = 'img/book.jpg') {
         id: makeId(),
         title,
         price,
-        imgUrl
+        imgUrl,
+        rating: 0
     }
 }
 
