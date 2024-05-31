@@ -230,3 +230,9 @@ footer {
     width:35px;
     aspect-ratio: 1;
 }
+
+.required {
+    color:red;
+    opacity:0;
+    transition:opacity 1s;
+}

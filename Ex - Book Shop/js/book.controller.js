@@ -88,6 +88,8 @@ function onFilterByName(value) {
 function onClearFilter() {
     const elInput = document.querySelector('.filter-input')
     elInput.value = ''
+    getBooks(elInput.value)
+    renderBooks()
 }
 
 function successMsg() {
@@ -123,12 +125,15 @@ function onOpenAddModal() {
     elModal.hidden = false
 }
 
-function onAddBook(ev) {
-    if (ev.code !== 'Enter') return
+function onAddBook() {
     var elBookNameInput = document.querySelector('.name-input')
     var elPriceInput = document.querySelector('.price-input')
     var elUrlInput = document.querySelector('.image-url-input')
-    if (!elBookNameInput.value || !elPriceInput.value || isNaN(parseInt(elPriceInput.value))) console.log('Try again bitch')
+    if (!elBookNameInput.value || !elPriceInput.value || isNaN(parseInt(elPriceInput.value))) {
+        const elReq = document.querySelector('.required')
+        elReq.style.opacity = 1
+        setTimeout(() => elReq.style.opacity = 0, 1500)
+    }
     else {
         elUrlInput.value ? addBook(elBookNameInput.value, elPriceInput.value, elUrlInput.value) : addBook(elBookNameInput.value, elPriceInput.value);
         onHideModal()

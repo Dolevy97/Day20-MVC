@@ -7,8 +7,7 @@ _createBooks()
 
 function getBooks(value) {
     if (!value || value === undefined) _createBooks()
-    value = value.toLowerCase()
-    gFilterBy = value
+    gFilterBy = value.toLowerCase()
     var newBookDisplay = gBooks.filter(book =>
         book.title.substring(0, gFilterBy.length).toLowerCase() === gFilterBy
     )

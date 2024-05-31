@@ -46,15 +46,16 @@
         </dialog>
     </div>
     <div class="backdrop" hidden>
-        <div class="add-book-modal" hidden onkeypress="onAddBook(event)">
+        <div class="add-book-modal" hidden">
             <button class="btn-close" onclick="onHideModal()">x</button>
             <h3>Please enter the name and price of the book you wish to add!</h3>
             <h3>If you have an image url of the cover, add it aswell (optional)</h3>
-            <br>
-            <input class='input name-input' type="text" placeholder="Book name" required>
-            <input class='input price-input' type="text" placeholder="Price" required>
+            <h4 class="required">Book name and a numerical price are required!</h4>
+            <input class='input name-input' type="text" placeholder="Book name">
+            <input class='input price-input' type="text" placeholder="Price">
             <input class='input image-url-input' type="text" placeholder="Image URL (optional)">
             <button class='add-submit' type="submit" onclick="onAddBook()">Submit</button>
+
         </div>
     </div>
     <h1 class="success">Success!</h1>
