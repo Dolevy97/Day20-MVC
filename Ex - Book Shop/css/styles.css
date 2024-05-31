@@ -100,6 +100,17 @@ tr:nth-of-type(even) {
     background-color: #FF5622;
 }
 
+
+.flex-head-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 15vh;
+}
+
 .flex-container {
     display: flex;
     flex-direction: column;
@@ -107,8 +118,9 @@ tr:nth-of-type(even) {
     align-items: center;
 
     width: 100vw;
-    height: 35vh;
+    height: 25vh;
 }
+
 
 .success {
     position: absolute;
@@ -159,21 +171,32 @@ footer {
     width: 100vw;
     height: 100vh;
     background-color: rgba(20, 20, 20, 0.5);
+    cursor: default;
+    z-index:20
 }
 
 .add-book-modal {
+    display: flex;
+    flex-direction: column;
     position: relative;
-    top: 50%;
+    top: 40%;
     left: 50%;
     translate: -50% -50%;
 
-    width: 600px;
-    height: 200px;
+    width: 400px;
+    height: auto;
 
     background-color: aquamarine;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 1px 1px 2px 1px black;
+}
+
+.input,
+.add-submit {
+    align-self: center;
+    width: 200px;
+    margin: 2px;
 }
 
 .btn-close {

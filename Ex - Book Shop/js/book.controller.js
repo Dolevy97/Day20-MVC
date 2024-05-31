@@ -6,7 +6,7 @@ function onInit() {
 
 function renderBooks() {
     var className = gCardViewMode ? '' : 'center';
-    if (gBooks.length === 0) var strHTML = [`<h2 class='${className}'>No available books with this filler :(</h2>`]
+    if (gBooks.length === 0) var strHTML = [`<h2 class='${className}'>No books were found :(</h2>`]
     else if (gCardViewMode) {
         var strHTML = gBooks.map(book => `<div class="card">
         <img src="${book.imgUrl}">
@@ -59,13 +59,6 @@ function onUpdateBook(id) {
     successMsg()
 }
 
-function onOpenAddModal() {
-    const elBackdrop = document.querySelector('.backdrop')
-    const elModal = document.querySelector('.add-book-modal')
-    elBackdrop.hidden = false
-    elModal.hidden = false
-}
-
 function onReadBook(id) {
     const elDialog = document.querySelector('dialog')
     const elPre = elDialog.querySelector('.pre')
@@ -108,7 +101,6 @@ function onToggleView(elBtn) {
     renderBooks()
 }
 
-
 function updateStats() {
     const elExpensive = document.querySelector('.expensive')
     const elAverage = document.querySelector('.average')
@@ -118,14 +110,25 @@ function updateStats() {
     elCheap.innerText = getCheapBooks()
 }
 
-function onAddBook() {
+function onOpenAddModal() {
+    const elBackdrop = document.querySelector('.backdrop')
+    const elModal = document.querySelector('.add-book-modal')
+    elBackdrop.hidden = false
+    elModal.hidden = false
+}
+
+function onAddBook(ev) {
+    if (ev.code !== 'Enter') return
     var elBookNameInput = document.querySelector('.name-input')
     var elPriceInput = document.querySelector('.price-input')
     var elUrlInput = document.querySelector('.image-url-input')
-    elUrlInput.value ? addBook(elBookNameInput.value, elPriceInput.value, elUrlInput.value) : addBook(elBookNameInput.value, elPriceInput.value);
-    onHideModal()
-    renderBooks()
-    successMsg()
+    if (!elBookNameInput.value || !elPriceInput.value || isNaN(parseInt(elPriceInput.value))) console.log('Try again bitch')
+    else {
+        elUrlInput.value ? addBook(elBookNameInput.value, elPriceInput.value, elUrlInput.value) : addBook(elBookNameInput.value, elPriceInput.value);
+        onHideModal()
+        renderBooks()
+        successMsg()
+    }
 }
 
 function onHideModal() {
