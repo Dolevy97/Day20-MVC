@@ -32,6 +32,16 @@ function updateBook(id, price) {
     _saveBooks()
 }
 
+function updateRating(id, num) {
+    var book = getBookById(id)
+    if (book.rating >= 0 && book.rating <= 5) {
+        book.rating += num;
+    }
+    if (book.rating < 0) book.rating = 0
+    else if (book.rating > 5) book.rating = 5
+    _saveBooks()
+}
+
 function addBook(title, price, imgUrl) {
     var newBook = _createBook(title, price, imgUrl)
     gBooks.unshift(newBook)

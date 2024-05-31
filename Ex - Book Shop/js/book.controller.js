@@ -70,9 +70,9 @@ function onReadBook(id) {
     Title: ${book.title}
     Price: $${book.price}
     <div class="rating-container">
-        <button class="rating-btn subtract-rating-btn">-</button>
-        <button class="rating-btn rating-num-btn">0</button>
-        <button class="rating-btn add-rating-btn">+</button>
+        <button onclick="onChangeRating('${book.id}',-1)" class="rating-btn subtract-rating-btn">-</button>
+        <button class="rating-btn rating-num-btn">${book.rating}</button>
+        <button onclick="onChangeRating('${book.id}',1)" class="rating-btn add-rating-btn">+</button>
     </div>
 
     `
@@ -148,4 +148,9 @@ function onHideModal() {
     elBookNameInput.value = ''
     elPriceInput.value = ''
     elUrlInput.value = ''
+}
+
+function onChangeRating(id, num) {
+    updateRating(id, num)
+    onReadBook(id)
 }
