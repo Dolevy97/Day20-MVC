@@ -48,10 +48,6 @@ h1 {
     margin-block: 10px;
 }
 
-.btn-clear {
-    margin: 20px;
-}
-
 img {
     display: inline;
     margin-inline: auto;
@@ -59,7 +55,7 @@ img {
 }
 
 .btn-new {
-    margin-block: 10px;
+    margin: 10px;
     background-color: #66FF99;
 }
 

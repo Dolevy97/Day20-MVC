@@ -1,5 +1,7 @@
 'use strict'
 
+
+
 function onInit() {
     renderBooks()
 }
@@ -93,11 +95,10 @@ function onClearFilter() {
 }
 
 function successMsg() {
-    var successTimeout
-    clearTimeout(successTimeout)
     var elSuccess = document.querySelector('.success')
     elSuccess.style.opacity = 1
-    successTimeout = setTimeout(() => {
+    clearTimeout(gSuccessTimeout)
+    gSuccessTimeout = setTimeout(() => {
         elSuccess.style.opacity = 0
     }, 2000)
 }
