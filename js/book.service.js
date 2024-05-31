@@ -1,5 +1,6 @@
 'use strict'
 
+var gSuccessTimeout
 var gCardViewMode = loadFromStorage('viewMode')
 var gFilterBy
 var gBooks
