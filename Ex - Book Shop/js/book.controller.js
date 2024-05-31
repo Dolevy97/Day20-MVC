@@ -69,6 +69,12 @@ function onReadBook(id) {
     ID: ${book.id}
     Title: ${book.title}
     Price: $${book.price}
+    <div class="rating-container">
+        <button class="rating-btn subtract-rating-btn">-</button>
+        <button class="rating-btn rating-num-btn">0</button>
+        <button class="rating-btn add-rating-btn">+</button>
+    </div>
+
     `
     elPre.innerHTML = str
     elDialog.showModal()

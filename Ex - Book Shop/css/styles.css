@@ -83,7 +83,7 @@ tr:nth-of-type(even) {
     background-color: #E8E8E8;
 }
 
-.btn {
+.btn-new {
     border-radius: 5px;
     border: .2px solid rgba(0, 0, 0, 0.2);
 }
@@ -203,4 +203,30 @@ footer {
     width: 20px;
     height: 20px;
     border-radius: 50%;
+}
+
+.rating-container {
+    position:relative;
+    top:30px;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:2px;
+
+    height:5vh;
+}
+
+.rating-btn {
+    border-radius: 8px;
+    border: .2px solid rgba(0, 0, 0, 0.2);
+    background-color: skyblue;
+    margin-block-end: 5px;
+    width:30px;
+    aspect-ratio: 1;
+}
+
+.rating-num-btn {
+    width:35px;
+    aspect-ratio: 1;
 }
